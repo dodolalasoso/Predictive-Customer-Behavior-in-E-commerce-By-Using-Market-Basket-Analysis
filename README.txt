@@ -23,7 +23,10 @@ How to run the code:
 
 4. Run the Python Code in order:
    - '1_merge_file.py'
-   - 2_mba_evaluation.py
-   - 2_MBA_Analysis.ipynb
-   - 3_ML_Modeling.ipynb
+   - '2_mba_evaluation.py'
+   - '3_mba_apriori.py'
+   - '4_mba_apriori_dpt.py'
+   - '5_ml_compare.py'
+   - '6_xgboost_model.py'
+   - '7_xgboost_model_visual.py'
 
