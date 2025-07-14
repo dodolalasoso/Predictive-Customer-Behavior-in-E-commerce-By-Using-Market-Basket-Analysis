@@ -73,7 +73,7 @@ models = {
 results = []
 
 for name, model in models.items():
-    print(f"\n🧠 Training model: {name}")
+    print(f"\nTraining model: {name}")
     model.fit(X_train, y_train)
     y_pred = model.predict(X_val)
     y_proba = model.predict_proba(X_val)[:, 1] if hasattr(model, "predict_proba") else None
