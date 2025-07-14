@@ -2,27 +2,20 @@ import pandas as pd
 from mlxtend.frequent_patterns import apriori, association_rules
 from mlxtend.preprocessing import TransactionEncoder
 
-# 读取数据
 df = pd.read_csv("D:/Dataset/fyp2/merged_instacart_data.csv")
-
-# 用 product_name 建立购物篮
 basket = df.groupby('order_id')['product_name'].apply(list).sample(n=10000, random_state=42)
-
-# One-hot 编码
 te = TransactionEncoder()
 df_encoded = pd.DataFrame(te.fit_transform(basket), columns=te.columns_)
 
-# 应用 Apriori 算法
+# Apriori
 frequent_itemsets = apriori(df_encoded, min_support=0.01, use_colnames=True)
 
-# 生成关联规则
+# Association Rules
 rules = association_rules(frequent_itemsets, metric="lift", min_threshold=1.0)
-
-# 整理输出
 rules['antecedents_str'] = rules['antecedents'].apply(lambda x: ', '.join(list(x)))
 rules['consequents_str'] = rules['consequents'].apply(lambda x: ', '.join(list(x)))
 
-# 导出结果
+# Output
 rules[['antecedents_str', 'consequents_str', 'support', 'confidence', 'lift']]\
     .sort_values(by='lift', ascending=False)\
     .to_csv("apriori_product_rules.csv", index=False)
