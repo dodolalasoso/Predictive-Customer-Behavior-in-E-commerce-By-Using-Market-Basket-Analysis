@@ -17,11 +17,10 @@ How to run the code:
    - xgboost
 
 3. Dataset Download:
-   - The dataset used is public and available at:
-     https://www.kaggle.com/datasets/psparks/instacart-market-basket-analysis
-
+   - The dataset used is public and available at: https://www.kaggle.com/datasets/psparks/instacart-market-basket-analysis
    - Download the dataset manually and extract it.
    - Place all `.csv` files (aisles.csv, departments.csv, order_products__prior.csv, etc.) in a folder named `data/` in the same directory as the notebook.
+   - You may also download the preprocessed dataset, which is "merged_instacart_dataset.csv".
 
 4. Run the Jupyter Notebooks in order:
    - '1_merge_file.py'
